@@ -1,0 +1,286 @@
+﻿@{
+    ViewData["Title"] = "WaterWise - Personalized Water Intake Calculator";
+}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+        color: #007bff;
+        text-align: center;
+    }
+
+    h4 {
+        color: #28a745;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    #result {
+        font-weight: bold;
+        color: #28a745;
+        text-align: center;
+    }
+
+    .progress-bar {
+        background-color: #007bff;
+    }
+
+    .btn {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .tips {
+        background-color: #e2f0d9;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    /* New styles for the form */
+    #waterForm {
+        border: 1px solid #007bff;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f1f9ff;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #007bff;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+    .error {
+        color: red;
+        font-size: 0.875em;
+    }
+</style>
+
+<div class="">
+    <h1 style="font-weight: 600;">Welcome to WaterWise</h1>
+    <h2>Your Personal Water Intake Calculator</h2>
+    <p>
+        Staying hydrated is vital for maintaining good health, enhancing physical performance, and improving overall well-being. WaterWise is your go-to tool for understanding your daily water intake needs based on various personal factors, such as age, weight, gender, activity level, and climate.
+    </p>
+    <p>
+        Whether you’re an athlete training for a marathon, someone looking to improve their daily hydration, or just curious about how much water you should be drinking, our application offers tailored recommendations that fit your lifestyle. It’s essential to recognize that the amount of water each individual needs can vary widely, influenced by factors such as metabolism, health conditions, and environmental conditions.
+    </p>
+    <p>
+        As a general guideline, many health authorities suggest drinking at least eight 8-ounce glasses of water a day, known as the "8x8 rule." However, this may not be sufficient for everyone. Understanding your unique hydration needs is crucial, and that's where WaterWise comes in, helping you customize your water intake for optimal health.
+    </p>
+    <p>
+        Remember, proper hydration can help you with digestion, concentration, and even mood! Utilize WaterWise to stay on top of your hydration goals and enhance your overall wellness journey.
+    </p>
+
+    <h3>Calculate Your Daily Water Intake</h3>
+    <form id="waterForm">
+        <div class="form-group">
+            <label for="age">Age (in years)</label><span class="text-danger"> *</span>
+            <input type="number" class="form-control" name="age" id="age" placeholder="Enter your age" min="1">
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight (kg)</label><span class="text-danger"> *</span>
+            <input type="number" class="form-control" name="weight" id="weight" placeholder="Enter your weight" min="1">
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label><span class="text-danger"> *</span>
+            <select class="form-control" name="gender" id="gender">
+                <option value="0" disabled selected>Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="activityLevel">Activity Level</label><span class="text-danger"> *</span>
+            <select class="form-control" name="activityLevel" id="activityLevel">
+                <option value="0" disabled selected>Select your activity level</option>
+                <option value="Low">Low (Sedentary)</option>
+                <option value="Moderate">Moderate (Light exercise/sports 1-3 days/week)</option>
+                <option value="High">High (Hard exercise/sports 3-5 days a week)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="climate">Climate</label><span class="text-danger"> *</span>
+            <select class="form-control" name="climate" id="climate">
+                <option value="0" disabled selected>Select your climate</option>
+                <option value="Cold">Cold</option>
+                <option value="Warm">Warm</option>
+                <option value="Hot">Hot</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+    </form>
+
+    <div class="mt-4">
+        <h4 id="result">Recommended Water Intake: <span></span> liters/day</h4>
+    </div>
+
+    <hr>
+
+    <h3>Track Your Hydration</h3>
+    <div class="form-group">
+        <label for="waterLogged">Enter water consumed (liters):</label>
+        <input type="number" class="form-control" id="waterLogged" placeholder="Enter water consumed" required min="0" step="0.01">
+        <button class="btn btn-success mt-2" id="trackBtn">Track Progress</button>
+    </div>
+    <div class="progress mt-4">
+        <div id="progressBar" class="progress-bar" style="width: 0%">0%</div>
+    </div>
+
+    <hr>
+
+    <h3>Hydration Tips</h3>
+    <div class="tips" id="tips">
+        <p>❖ Drink a glass of water first thing in the morning to kickstart your hydration.</p>
+        <p>❖ Carry a reusable water bottle with you to ensure you drink water throughout the day.</p>
+        <p>❖ Set reminders on your phone to take regular sips of water.</p>
+        <p>❖ Add slices of fruits or herbs to your water for added flavor and nutrients.</p>
+        <p>❖ Drink a glass of water before each meal to aid digestion.</p>
+        <p>❖ Monitor the color of your urine; pale yellow indicates good hydration.</p>
+        <p>❖ Consume water-rich foods like cucumbers, oranges, and watermelon.</p>
+        <p>❖ Replace sugary drinks with water to reduce calorie intake.</p>
+        <p>❖ Drink extra water when exercising, especially in hot weather.</p>
+        <p>❖ Take a sip of water every time you check your phone or computer.</p>
+        <p>❖ Keep a water tracker app to monitor your daily intake.</p>
+        <p>❖ Hydrate during and after long meetings or events.</p>
+        <p>❖ Challenge friends or family to a hydration competition.</p>
+        <p>❖ Use a larger cup or bottle to trick yourself into drinking more.</p>
+        <p>❖ Learn about your specific hydration needs based on your health and lifestyle.</p>
+    </div>
+
+    <hr>
+
+    <h3>Why Hydration Matters</h3>
+    <p>
+        Proper hydration is essential for every system in your body to function optimally. From maintaining body temperature to lubricating joints, your body relies on water. The right amount of water can help improve your skin health, reduce the risk of kidney stones, and prevent infections. It can also help maximize physical performance, especially during intense exercise or high heat.
+    </p>
+    <p>
+        Dehydration can lead to headaches, fatigue, and impaired mood. When you are dehydrated, your body struggles to maintain energy levels, affecting your ability to concentrate and perform tasks efficiently. Furthermore, chronic dehydration can result in serious health issues such as kidney damage, urinary tract infections, and digestive problems.
+    </p>
+    <p>
+        By tracking your water intake and making hydration a priority, you can ensure that you maintain optimal hydration levels. This not only supports physical health but also boosts mental clarity and emotional well-being, enabling you to lead a more active and fulfilling life.
+    </p>
+    <p>
+        It's essential to adapt your water intake based on your lifestyle, especially during hot weather or when engaging in physical activities. Prioritizing hydration can significantly improve your overall health and quality of life.
+    </p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include jQuery Validation Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            // Validate water intake form
+            $('#waterForm').validate({
+                rules: {
+                    age: {
+                        required: true,
+                        min: 1
+                    },
+                    weight: {
+                        required: true,
+                        min: 1
+                    },
+                    gender: {
+                        required: true
+                    },
+                    activityLevel: {
+                        required: true
+                    },
+                    climate: {
+                        required: true
+                    }
+                },
+                messages: {
+                    age: {
+                        required: "Please enter your age.",
+                        min: "Age must be at least 1."
+                    },
+                    weight: {
+                        required: "Please enter your weight.",
+                        min: "Weight must be at least 1."
+                    },
+                    gender: "Please select your gender.",
+                    activityLevel: "Please select your activity level.",
+                    climate: "Please select your climate."
+                },
+                submitHandler: function (form) {
+                    // Calculate water intake via AJAX if the form is valid
+                    $.ajax({
+                        url: '@Url.Action("CalculateWaterIntake", "Home")',
+                        type: 'POST',
+                        data: {
+                            Age: $('#age').val(),
+                            Weight: $('#weight').val(),
+                            Gender: $('#gender').val(),
+                            ActivityLevel: $('#activityLevel').val(),
+                            Climate: $('#climate').val()
+                        },
+                        success: function (data) {
+                            $('#result span').text(data);
+                        },
+                        error: function () {
+                            alert("Error calculating water intake. Please try again.");
+                        }
+                    });
+                }
+            });
+
+            // Track water intake
+            $('#trackBtn').on('click', function () {
+                const waterLogged = parseFloat($('#waterLogged').val());
+                const recommendedIntake = parseFloat($('#result span').text());
+
+                if (isNaN(waterLogged) || waterLogged < 0) {
+                    alert("Please enter a valid amount of water consumed.");
+                    return;
+                }
+
+                const progressPercentage = (waterLogged / recommendedIntake) * 100;
+
+                $('#progressBar').css('width', progressPercentage + '%').text(Math.round(progressPercentage) + '%');
+
+                if (progressPercentage >= 100) {
+                    alert("Congratulations! You've met your hydration goal for the day.");
+                } else {
+                    alert("Keep going! You're on your way to your hydration goal.");
+                }
+            });
+        });
+    })(jQuery);
+</script>

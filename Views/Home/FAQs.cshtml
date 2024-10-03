@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "WaterWise - FAQs";
+}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-top: 20px;
+    }
+
+    h1, h2 {
+        color: #007bff;
+        text-align: center;
+    }
+
+    .faq-item {
+        margin-bottom: 1rem;
+    }
+
+    .faq-question {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .faq-answer {
+        display: none;
+        padding: 10px;
+        border-left: 4px solid #28a745;
+        background-color: #e2f0d9;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+    }
+</style>
+
+<div class="mt-5">
+    <h1 style="font-weight: 600;">Frequently Asked Questions</h1>
+    <h2>Your WaterWise Queries Answered</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">1. How much water should I drink daily?</div>
+        <div class="faq-answer">The amount varies based on age, weight, gender, activity level, and climate. A common guideline is at least eight 8-ounce glasses of water a day, but you can use the WaterWise calculator for personalized recommendations.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">2. What factors influence my daily water intake?</div>
+        <div class="faq-answer">Factors include your age, weight, gender, physical activity level, and the climate you live in. All these elements can affect how much water your body needs.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">3. Can I count beverages other than water?</div>
+        <div class="faq-answer">Yes, beverages like tea, coffee, and juices contribute to your daily hydration. However, it’s best to prioritize water as your main source of hydration.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">4. What are the signs of dehydration?</div>
+        <div class="faq-answer">Signs of dehydration include thirst, dark urine, fatigue, dizziness, and dry skin. If you experience these symptoms, increase your fluid intake.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">5. Is drinking too much water harmful?</div>
+        <div class="faq-answer">Yes, excessive water intake can lead to water intoxication or hyponatremia, which can be dangerous. It's important to drink according to your body’s needs.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">6. How does exercise affect my water intake needs?</div>
+        <div class="faq-answer">During exercise, your body loses water through sweat, increasing your need for hydration. Drink water before, during, and after your workouts to stay hydrated.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">7. Can climate affect my hydration needs?</div>
+        <div class="faq-answer">Absolutely. Hot and humid weather increases fluid loss through sweat, so you may need to drink more water in such conditions.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">8. What should I do if I forget to drink water?</div>
+        <div class="faq-answer">Set reminders on your phone, carry a water bottle, or track your intake using apps to help you stay mindful of your hydration throughout the day.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">9. How can I make water more appealing?</div>
+        <div class="faq-answer">Add slices of fruits or herbs like lemon, mint, or cucumber to your water for added flavor. Infused water can make hydration more enjoyable.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">10. Is it okay to drink water while eating?</div>
+        <div class="faq-answer">Yes, drinking water during meals can aid digestion. However, avoid excessive intake as it may dilute digestive juices.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">11. Do I need more water if I'm pregnant or breastfeeding?</div>
+        <div class="faq-answer">Yes, hydration needs increase during pregnancy and breastfeeding. It's important to drink plenty of fluids to support your health and your baby's.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">12. How can I track my daily water intake?</div>
+        <div class="faq-answer">You can use the WaterWise app to log your water intake. Alternatively, you can keep a journal or use a hydration tracking app to monitor your progress.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">13. What water intake should I aim for when exercising?</div>
+        <div class="faq-answer">Aim to drink water before, during, and after exercise. A good rule of thumb is to drink about 500ml (17 ounces) two hours before exercising and then continue to hydrate during and after your workout.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">14. Are there any health conditions that require special hydration considerations?</div>
+        <div class="faq-answer">Yes, certain conditions such as kidney disease, heart issues, or diabetes may require specific hydration guidelines. Always consult your healthcare provider for personalized advice.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">15. Can I use a water filter for better hydration?</div>
+        <div class="faq-answer">Using a water filter can improve the taste and quality of your drinking water by removing impurities. Ensure your filter meets safety standards to provide clean and safe drinking water.</div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.faq-question').on('click', function () {
+            $(this).next('.faq-answer').slideToggle();
+        });
+    });
+</script>

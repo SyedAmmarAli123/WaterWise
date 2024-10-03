@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WaterWise</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WaterWise.styles.css" asp-append-version="true" />
+    <style>
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    margin: 0 !important;
+    padding-bottom: 0px;
+}
+
+        .footer[b-295pdx962j] {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            white-space: nowrap;
+            line-height: 30px;
+        }
+.navbar {
+    background-color: #007bff; 
+    border-bottom: 2px solid #0056b3;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff;
+}
+
+.nav-link:hover {
+    color: #ffc107; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-top: 20px;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.footer-info span {
+    margin: 0 5px;
+}
+
+.footer a {
+            color: #007bff;
+}
+
+.footer a:hover {
+                color: #007bff;
+}
+
+@@media (max-width: 768px) {
+    .footer {
+        padding: 10px;
+    }
+
+    .footer-info {
+        font-size: 12px;
+    }
+}
+
+
+
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    border-left: 4px solid #28a745;
+    background-color: #e2f0d9;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+@@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .navbar {
+        padding: 0.5rem;
+    }
+}
+@@media (max-width: 768px) {
+    .footer {
+        padding: 10px;
+    }
+
+    .footer-info {
+        font-size: 12px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WaterWise</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-action="FAQs" asp-controller="Home" asp-action="Privacy">FAQ's</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer border-top text-muted">
+        <div class="container">
+            <div>&copy; 2024 - WaterWise</div>
+            <div class="footer-info">
+                <span>Created by Syed Ammar Ali</span> |
+                <span>Email: <a href="mailto:ammarsyed51@gmail.com">ammarsyed51@gmail.com</a></span> |
+            </div>
+            <div>All rights reserved.</div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

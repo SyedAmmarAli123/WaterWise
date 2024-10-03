@@ -1,0 +1,7 @@
+C:\Users\ammar.ali\source\repos\WaterWise\publish\WaterWise.exe
+C:\Users\ammar.ali\source\repos\WaterWise\publish\appsettings.Development.json
+C:\Users\ammar.ali\source\repos\WaterWise\publish\appsettings.json
+C:\Users\ammar.ali\source\repos\WaterWise\publish\WaterWise.dll
+C:\Users\ammar.ali\source\repos\WaterWise\publish\WaterWise.deps.json
+C:\Users\ammar.ali\source\repos\WaterWise\publish\WaterWise.runtimeconfig.json
+C:\Users\ammar.ali\source\repos\WaterWise\publish\WaterWise.pdb
